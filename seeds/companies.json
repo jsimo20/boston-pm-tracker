@@ -1,0 +1,114 @@
+[
+  {
+    "name": "HubSpot",
+    "ats_provider": "greenhouse",
+    "ats_slug": "hubspot",
+    "careers_url": "https://www.hubspot.com/careers",
+    "sector_tags": ["saas", "marketing", "developer_platform"],
+    "size_band": "500+"
+  },
+  {
+    "name": "Klaviyo",
+    "ats_provider": "greenhouse",
+    "ats_slug": "klaviyo",
+    "careers_url": "https://www.klaviyo.com/careers",
+    "sector_tags": ["martech", "saas"],
+    "size_band": "500+"
+  },
+  {
+    "name": "Toast",
+    "ats_provider": "greenhouse",
+    "ats_slug": "toast",
+    "careers_url": "https://careers.toasttab.com",
+    "sector_tags": ["restaurant_saas", "fintech"],
+    "size_band": "500+"
+  },
+  {
+    "name": "Salesloft",
+    "ats_provider": "greenhouse",
+    "ats_slug": "salesloft",
+    "careers_url": "https://salesloft.com/careers",
+    "sector_tags": ["sales_saas"],
+    "size_band": "201-500"
+  },
+  {
+    "name": "Acquia",
+    "ats_provider": "greenhouse",
+    "ats_slug": "acquia",
+    "careers_url": "https://www.acquia.com/careers",
+    "sector_tags": ["cms", "developer_platform"],
+    "size_band": "201-500"
+  },
+  {
+    "name": "Markforged",
+    "ats_provider": "greenhouse",
+    "ats_slug": "markforged",
+    "careers_url": "https://markforged.com/about/careers",
+    "sector_tags": ["hardware", "manufacturing"],
+    "size_band": "201-500"
+  },
+  {
+    "name": "Lightmatter",
+    "ats_provider": "greenhouse",
+    "ats_slug": "lightmatter",
+    "careers_url": "https://lightmatter.co/careers",
+    "sector_tags": ["silicon", "ai_agentic"],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Planet Labs",
+    "ats_provider": "greenhouse",
+    "ats_slug": "planetlabs",
+    "careers_url": "https://www.planet.com/careers",
+    "sector_tags": ["space"],
+    "size_band": "500+"
+  },
+  {
+    "name": "Ginkgo Bioworks",
+    "ats_provider": "greenhouse",
+    "ats_slug": "ginkgobioworks",
+    "careers_url": "https://www.ginkgobioworks.com/careers",
+    "sector_tags": ["health_bio"],
+    "size_band": "500+"
+  },
+  {
+    "name": "PathAI",
+    "ats_provider": "greenhouse",
+    "ats_slug": "pathai",
+    "careers_url": "https://www.pathai.com/careers",
+    "sector_tags": ["health_bio", "ai_agentic"],
+    "size_band": "201-500"
+  },
+  {
+    "name": "Salsify",
+    "ats_provider": "greenhouse",
+    "ats_slug": "salsify",
+    "careers_url": "https://www.salsify.com/careers",
+    "sector_tags": ["ecommerce", "saas"],
+    "size_band": "201-500"
+  },
+  {
+    "name": "Buildium",
+    "ats_provider": "lever",
+    "ats_slug": "buildium",
+    "careers_url": "https://www.buildium.com/careers",
+    "sector_tags": ["proptech", "saas"],
+    "size_band": "201-500"
+  },
+  {
+    "name": "Proof (Notarize)",
+    "ats_provider": "lever",
+    "ats_slug": "proof",
+    "careers_url": "https://www.proof.com/careers",
+    "sector_tags": ["fintech"],
+    "size_band": "51-200"
+  },
+  {
+    "name": "LogRocket",
+    "ats_provider": "lever",
+    "ats_slug": "logrocket",
+    "careers_url": "https://logrocket.com/careers",
+    "sector_tags": ["developer_platform"],
+    "size_band": "51-200"
+  }
+]
