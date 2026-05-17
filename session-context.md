@@ -20,7 +20,7 @@ Pilot is live on cron. Repo: https://github.com/jsimo20/boston-pm-tracker (priva
 
 ## Recent sessions
 
-### 2026-05-17 — go-live + application tracking
+### 2026-05-17 — go-live + application tracking + manage-seeds skill
 Steps 3–4 of the execution plan: `git init`, created private repo `jsimo20/boston-pm-tracker`, set `ANTHROPIC_API_KEY` secret, ran `gh workflow run pm-digest` (17s, committed cleanly). Cron then changed from daily to every 3 days (`0 13 */3 * *`); closed-section entries now link the title to the original URL (archived ATS pages often resolve).
 
 Two more QA-driven fixes before go-live:
@@ -32,6 +32,8 @@ Two more QA-driven fixes before go-live:
 - New module `review.py` with interactive picker. Sorted by score desc; keys `a/d/s/o/b/q` to act/skip/open URL/go back/quit. Uses `webbrowser.open()` from stdlib for `o`.
 - CLI: `review`, `mark-applied <external_id>`, `dismiss <external_id>`, `unmark <external_id>`. `external_id` is the `gh_jid` number for Greenhouse, the slug for Lever.
 - Digest: each queue now has a "new" section (first seen this run) and a "carried forward" section (top 20 by score, pending, not stale, not yet applied/dismissed). Stats footer adds `Pending unapplied` and `Applied lifetime`. Stale filter (`>30d`) still applies to carry-forward.
+
+Added a project-level skill at `.claude/skills/manage-seeds/SKILL.md`. Future Claude sessions in this repo can manage `seeds/companies.json` (add/remove/swap/probe/audit) in plain English, without the user invoking a CLI. Encodes the conventions we learned the hard way: probe the ATS endpoint before adding (no 404s), don't auto-run the pipeline (saves Claude tokens), don't add Workable/Ashby rows until those adapters ship.
 
 ### 2026-05-15 — pilot QA and bug hunt
 First live run against real ATS feeds. Iteratively fixed filter bugs surfaced by user QA:
