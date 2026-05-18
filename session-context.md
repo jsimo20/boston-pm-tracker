@@ -1,27 +1,32 @@
 # session-context
 
-## Current state (2026-05-17)
+## Current state (2026-05-18)
 
-Pilot is live on cron. Repo: https://github.com/jsimo20/boston-pm-tracker (private). 36 tests green.
+Pilot is live on cron. Repo: https://github.com/jsimo20/boston-pm-tracker (private). 44 tests green.
 
 - Python 3.12. Deps: httpx, anthropic, jinja2, beautifulsoup4, python-dotenv.
 - Pipeline: `collect` → Stage 1 filter → `extract` (Claude Haiku, cached system prompt) → Stage 3 filter → `score` → `digest`.
 - GitHub Action `pm-digest` (file: `.github/workflows/daily.yml`) runs every 3rd day of the month at 13:00 UTC (`0 13 */3 * *`). Writes `data/jobs.db` + `digests/YYYY-MM-DD.md` back to main with `[skip ci]`. `ANTHROPIC_API_KEY` set as repo secret.
-- **307-company seed** (expanded from 14). 237 Greenhouse, 65 Lever, 5 existing pre-discovery. Recent collect run: 10,822 postings → 124 kept Stage 1 across 38 companies. `size_band` is metadata only — not used as a filter anywhere.
-- Application tracking: digest carries forward unapplied roles (top 20 by score per queue). `cli review` interactive picker with `a/d/s/o/b/q`. `mark-applied`, `dismiss`, `unmark` non-interactive forms also exist.
-- BIB full universe: 2,252 companies scraped from builtinboston.com (all sizes, Hybrid/OnSite/Fully-Remote). Raw data at `data/builtinboston_companies_with_slugs.json`. Diff at `data/builtinboston_universe_diff.json`.
+- **338-company seed** (GH + Lever only). Latest collect run: 11,545 postings → 129 kept Stage 1, 91 main + 36 stretch, 0 errors. `size_band` is metadata only — not used as a filter anywhere.
+- `data/jobs.db` is gitignored (199MB raw, 73MB after dropping `raw_json` column). Pipeline rebuilds it on every run. `raw_json` column removed from postings — all needed fields already parsed into dedicated columns.
+- Application tracking: digest carries forward unapplied roles (top 20 by score per queue). CLI entry point is `.venv\Scripts\boston-pm-tracker.exe`. `review`, `mark-applied`, `dismiss`, `unmark` subcommands.
+- BIB full universe: 2,252 companies scraped from builtinboston.com. Raw data at `data/builtinboston_companies_with_slugs.json`.
 
 ## Open threads
 
-- **Next immediate win: fold in ~34 more Greenhouse + ~5 Lever companies** found via better slug guessing in `data/ats_gap_analysis.json`. Script `scripts/probe_ats_gap.py` identifies them.
-- **Ashby adapter** is the highest-ROI next build: ~16/300 sampled not-found companies are on Ashby (~100+ extrapolated across full 1,950 gap). API: `https://jobs.ashbyhq.com/{slug}` — public, no auth. Snyk is already a known Ashby company.
-- **~82% of the 1,950 gap companies are on Workday/ICIMS/Taleo/custom pages** — confirmed via gap analysis. These are mostly large enterprises (Fidelity, Biogen, Moderna, BlackRock, Mastercard). Workday has no public API; would require per-tenant scraping. Deferred.
-- **SmartRecruiters probe is a false positive** — their careers endpoint returns 200 for any slug. Do not use it as a detection signal without a more specific check.
-- **GH Action deprecation warning**: `actions/checkout@v4` and `actions/setup-python@v5` move to Node 24 in June 2026. Bump versions before then.
-- **Workflow file is still named `daily.yml`** despite the 3-day cadence and `pm-digest` display name. Rename later if it bothers future-us; not breaking anything.
-- **Top companies with current Stage 1 PM roles**: Veeva (30), Toast (11), Klaviyo (9), Datadog (7), The Engine (7), AlphaSense (4), Constant Contact (4), SimpliSafe (3), Sophos (3), Starburst (3), VEIR (3), WHOOP (3), ZoomInfo (3). `extract` + `score` + `digest` not yet run on the expanded set.
+- **NEXT: Build Ashby adapter** — highest-ROI remaining build. ~16/300 sampled not-found companies are on Ashby → ~100+ extrapolated across full 1,950 gap. API: `GET https://jobs.ashbyhq.com/api/non-user-graphql` (POST, GraphQL) or scrape `https://jobs.ashbyhq.com/{slug}`. Public, no auth. Snyk is a known Ashby company to test against. Need to: (1) write `src/boston_pm_tracker/adapters/ashby.py`, (2) wire into `collect.py`, (3) probe the 16 known Ashby companies from `data/ats_gap_analysis.json` + the ~100 estimated in the unprobed remainder using `probe_full_gap.py` (add Ashby probe), (4) add rows to seeds.
+- **SmartRecruiters reclassification** — 230/300 sampled gap companies hit SR false positive. Need to re-probe those 230 to determine their real ATS. Deferred until after Ashby.
+- **~82% of the 1,950 gap companies are on Workday/ICIMS/Taleo/custom pages** — large enterprises (Fidelity, Biogen, Moderna, BlackRock, Mastercard). No public API. Deferred.
+- **GH Action deprecation warning**: `actions/checkout@v4` and `actions/setup-python@v5` move to Node 24 in June 2026. Bump before then.
+- **Workflow file is still named `daily.yml`** despite the 3-day cadence. Not breaking anything.
+- **Cardata role** shows "Canada - Remote" but passed location filter — worth a manual check of the location logic.
 
 ## Recent sessions
+
+### 2026-05-18 — full gap probe + seed expansion + raw_json cleanup
+Ran `scripts/probe_full_gap.py` (new script) on the remaining 1,522 unsampled not-found companies. Found 111 (86 GH, 25 Lever); 83 already in seeds, 28 net new → seed now 338. Pipeline run: 11,545 fetched, 129 Stage 1, 91 main + 36 stretch. New role surfaced: Verve, Inc. Senior PM, Data Partnerships ($120–155K).
+
+Also cleaned up repo: dropped `raw_json TEXT NOT NULL` column from postings (was 198MB of the 199MB DB size); gitignored `data/jobs.db`; fixed push blocker caused by 199MB file exceeding GitHub's 100MB limit. Removed `raw_json` from both adapter dataclasses, `upsert_posting` signature, and test fixtures. 44 tests green post-cleanup.
 
 ### 2026-05-17 (session 2) — BIB universe expansion + ATS gap analysis
 Used Playwright MCP to scrape all 113 pages of builtinboston.com (Hybrid/OnSite/Fully-Remote, all sizes) via JSON-LD structured data (note: script tag uses `application/ld&#x2B;json` encoding). Captured 2,252 companies with name + BIB slug. Ran concurrent async prober (`scripts/probe_ats.py`) against Greenhouse and Lever APIs for all companies — found 302 with valid endpoints (237 GH, 65 Lever). Merged with existing 14 seeds (9 overlapped) → 307-company `seeds/companies.json`. Ran collect: 10,822 postings fetched, 124 kept Stage 1, 38 companies with qualifying PM roles, 0 errors.
