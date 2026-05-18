@@ -1,4 +1,4 @@
-"""Probe the full not-found tail (companies 301–1950) for GH and Lever.
+"""Probe the full not-found tail (companies 301–1950) for GH, Lever, and Ashby.
 
 Skips SmartRecruiters (known false positive) and companies already in seeds.
 Writes actionable finds to data/full_gap_probe.json.
@@ -55,6 +55,14 @@ async def probe_lever(slug: str, client: httpx.AsyncClient) -> bool:
         return False
 
 
+async def probe_ashby(slug: str, client: httpx.AsyncClient) -> bool:
+    try:
+        r = await client.get(f"https://jobs.ashbyhq.com/{slug}", timeout=TIMEOUT)
+        return r.status_code == 200 and "ashbyhq" in r.text.lower()
+    except Exception:
+        return False
+
+
 async def probe_company(
     company: dict, client: httpx.AsyncClient, sem: asyncio.Semaphore
 ) -> dict | None:
@@ -69,6 +77,9 @@ async def probe_company(
         for s in variants:
             if await probe_lever(s, client):
                 return {"name": name, "bib_slug": bib_slug, "ats": "lever", "ats_slug": s}
+        for s in variants:
+            if await probe_ashby(s, client):
+                return {"name": name, "bib_slug": bib_slug, "ats": "ashby", "ats_slug": s}
 
     return None
 
@@ -96,9 +107,14 @@ async def main() -> None:
 
     gh = [r for r in found if r["ats"] == "greenhouse"]
     lv = [r for r in found if r["ats"] == "lever"]
-    print(f"\nDone. Found {len(gh)} Greenhouse + {len(lv)} Lever across {len(tail)} probed.")
+    ab = [r for r in found if r["ats"] == "ashby"]
+    print(f"\nDone. Found {len(gh)} Greenhouse + {len(lv)} Lever + {len(ab)} Ashby across {len(tail)} probed.")
+    if ab:
+        print("Ashby finds:")
+        for r in ab:
+            print(f"  {r['name']} -> {r['ats_slug']}")
 
-    out = {"probed": len(tail), "greenhouse": gh, "lever": lv}
+    out = {"probed": len(tail), "greenhouse": gh, "lever": lv, "ashby": ab}
     (DATA_DIR / "full_gap_probe.json").write_text(json.dumps(out, indent=2))
     print(f"Wrote data/full_gap_probe.json")
 
