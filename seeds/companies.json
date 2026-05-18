@@ -2765,5 +2765,643 @@
     "careers_url": "https://www.builtinboston.com/company/zerorisc-inc",
     "sector_tags": [],
     "size_band": "unknown"
+  },
+  {
+    "name": "Benchling",
+    "ats_provider": "ashby",
+    "ats_slug": "benchling",
+    "careers_url": "https://jobs.ashbyhq.com/benchling",
+    "sector_tags": [
+      "biotech",
+      "saas"
+    ],
+    "size_band": "501-1000"
+  },
+  {
+    "name": "Benchmark Health",
+    "ats_provider": "ashby",
+    "ats_slug": "benchmarkhealth",
+    "careers_url": "https://jobs.ashbyhq.com/benchmarkhealth",
+    "sector_tags": [
+      "healthtech"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Alva Energy",
+    "ats_provider": "ashby",
+    "ats_slug": "alva-energy",
+    "careers_url": "https://jobs.ashbyhq.com/alva-energy",
+    "sector_tags": [
+      "cleantech",
+      "energy"
+    ],
+    "size_band": "1-50"
+  },
+  {
+    "name": "Bento",
+    "ats_provider": "ashby",
+    "ats_slug": "bento",
+    "careers_url": "https://jobs.ashbyhq.com/bento",
+    "sector_tags": [
+      "fintech"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Artemis",
+    "ats_provider": "ashby",
+    "ats_slug": "artemis",
+    "careers_url": "https://jobs.ashbyhq.com/artemis",
+    "sector_tags": [
+      "healthtech"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Ampersand",
+    "ats_provider": "ashby",
+    "ats_slug": "ampersand",
+    "careers_url": "https://jobs.ashbyhq.com/ampersand",
+    "sector_tags": [
+      "analytics",
+      "saas"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Asimov",
+    "ats_provider": "ashby",
+    "ats_slug": "asimov",
+    "careers_url": "https://jobs.ashbyhq.com/asimov",
+    "sector_tags": [
+      "biotech",
+      "synthetic_biology"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Aquant",
+    "ats_provider": "ashby",
+    "ats_slug": "aquant",
+    "careers_url": "https://jobs.ashbyhq.com/aquant",
+    "sector_tags": [
+      "ai",
+      "field_service"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "AllSpice",
+    "ats_provider": "ashby",
+    "ats_slug": "allspice",
+    "careers_url": "https://jobs.ashbyhq.com/allspice",
+    "sector_tags": [
+      "devtools",
+      "hardware"
+    ],
+    "size_band": "1-50"
+  },
+  {
+    "name": "Blitzy",
+    "ats_provider": "ashby",
+    "ats_slug": "blitzy",
+    "careers_url": "https://jobs.ashbyhq.com/blitzy",
+    "sector_tags": [
+      "ai",
+      "devtools"
+    ],
+    "size_band": "1-50"
+  },
+  {
+    "name": "Access",
+    "ats_provider": "ashby",
+    "ats_slug": "access",
+    "careers_url": "https://jobs.ashbyhq.com/access",
+    "sector_tags": [
+      "saas"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "829 Studios",
+    "ats_provider": "ashby",
+    "ats_slug": "829studios",
+    "careers_url": "https://jobs.ashbyhq.com/829studios",
+    "sector_tags": [
+      "marketing",
+      "agency"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Alloy Enterprises",
+    "ats_provider": "ashby",
+    "ats_slug": "alloyenterprises",
+    "careers_url": "https://jobs.ashbyhq.com/alloyenterprises",
+    "sector_tags": [
+      "manufacturing",
+      "software"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "AgZen",
+    "ats_provider": "ashby",
+    "ats_slug": "agzen",
+    "careers_url": "https://jobs.ashbyhq.com/agzen",
+    "sector_tags": [
+      "agtech",
+      "cleantech"
+    ],
+    "size_band": "1-50"
+  },
+  {
+    "name": "Bicara Therapeutics",
+    "ats_provider": "ashby",
+    "ats_slug": "bicara-therapeutics",
+    "careers_url": "https://jobs.ashbyhq.com/bicara-therapeutics",
+    "sector_tags": [
+      "biotech",
+      "pharma"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Adapt",
+    "ats_provider": "ashby",
+    "ats_slug": "adapt",
+    "careers_url": "https://jobs.ashbyhq.com/adapt",
+    "sector_tags": [
+      "saas"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Cleartelligence, Inc.",
+    "ats_provider": "greenhouse",
+    "ats_slug": "cleartelligence",
+    "careers_url": "https://www.builtinboston.com/company/cleartelligence-inc",
+    "sector_tags": [],
+    "size_band": "unknown"
+  },
+  {
+    "name": "Current Health",
+    "ats_provider": "greenhouse",
+    "ats_slug": "current",
+    "careers_url": "https://www.builtinboston.com/company/current-health",
+    "sector_tags": [
+      "health_bio"
+    ],
+    "size_band": "unknown"
+  },
+  {
+    "name": "Tessera Therapeutics",
+    "ats_provider": "greenhouse",
+    "ats_slug": "tesseratherapeutics",
+    "careers_url": "https://www.builtinboston.com/company/tessera-therapeutics",
+    "sector_tags": [
+      "health_bio"
+    ],
+    "size_band": "unknown"
+  },
+  {
+    "name": "OnRamp",
+    "ats_provider": "ashby",
+    "ats_slug": "onramp",
+    "careers_url": "https://jobs.ashbyhq.com/onramp",
+    "sector_tags": [
+      "fintech",
+      "consumer_at_scale"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Overjet",
+    "ats_provider": "ashby",
+    "ats_slug": "overjet",
+    "careers_url": "https://jobs.ashbyhq.com/overjet",
+    "sector_tags": [
+      "ai_agentic",
+      "health_bio"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Vend Park",
+    "ats_provider": "ashby",
+    "ats_slug": "vend-park",
+    "careers_url": "https://jobs.ashbyhq.com/vend-park",
+    "sector_tags": [
+      "saas"
+    ],
+    "size_band": "1-50"
+  },
+  {
+    "name": "Paddle",
+    "ats_provider": "ashby",
+    "ats_slug": "paddle",
+    "careers_url": "https://jobs.ashbyhq.com/paddle",
+    "sector_tags": [
+      "fintech",
+      "developer_platform",
+      "saas"
+    ],
+    "size_band": "201-500"
+  },
+  {
+    "name": "VitVio",
+    "ats_provider": "ashby",
+    "ats_slug": "vitvio",
+    "careers_url": "https://jobs.ashbyhq.com/vitvio",
+    "sector_tags": [
+      "health_bio"
+    ],
+    "size_band": "1-50"
+  },
+  {
+    "name": "Volition Capital",
+    "ats_provider": "ashby",
+    "ats_slug": "volition-capital",
+    "careers_url": "https://jobs.ashbyhq.com/volition-capital",
+    "sector_tags": [
+      "venture"
+    ],
+    "size_band": "1-50"
+  },
+  {
+    "name": "Own Up",
+    "ats_provider": "ashby",
+    "ats_slug": "ownup",
+    "careers_url": "https://jobs.ashbyhq.com/ownup",
+    "sector_tags": [
+      "fintech"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Wistia",
+    "ats_provider": "ashby",
+    "ats_slug": "wistia",
+    "careers_url": "https://jobs.ashbyhq.com/wistia",
+    "sector_tags": [
+      "saas",
+      "martech"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "GridUnity",
+    "ats_provider": "ashby",
+    "ats_slug": "gridunity",
+    "careers_url": "https://jobs.ashbyhq.com/gridunity",
+    "sector_tags": [
+      "cleantech",
+      "saas"
+    ],
+    "size_band": "1-50"
+  },
+  {
+    "name": "ZOE",
+    "ats_provider": "ashby",
+    "ats_slug": "zoe",
+    "careers_url": "https://jobs.ashbyhq.com/zoe",
+    "sector_tags": [
+      "health_bio",
+      "consumer_at_scale"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Help Scout",
+    "ats_provider": "ashby",
+    "ats_slug": "helpscout",
+    "careers_url": "https://jobs.ashbyhq.com/helpscout",
+    "sector_tags": [
+      "saas"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Posh AI",
+    "ats_provider": "ashby",
+    "ats_slug": "posh-ai",
+    "careers_url": "https://jobs.ashbyhq.com/posh-ai",
+    "sector_tags": [
+      "ai_agentic",
+      "fintech"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Hologram Sciences",
+    "ats_provider": "ashby",
+    "ats_slug": "hologramsciences",
+    "careers_url": "https://jobs.ashbyhq.com/hologramsciences",
+    "sector_tags": [
+      "health_bio",
+      "consumer_at_scale"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Progress Partners",
+    "ats_provider": "ashby",
+    "ats_slug": "progress-partners",
+    "careers_url": "https://jobs.ashbyhq.com/progress-partners",
+    "sector_tags": [
+      "consulting"
+    ],
+    "size_band": "1-50"
+  },
+  {
+    "name": "billups",
+    "ats_provider": "ashby",
+    "ats_slug": "billups",
+    "careers_url": "https://jobs.ashbyhq.com/billups",
+    "sector_tags": [
+      "adtech",
+      "saas"
+    ],
+    "size_band": "201-500"
+  },
+  {
+    "name": "connectRN",
+    "ats_provider": "ashby",
+    "ats_slug": "connectrn",
+    "careers_url": "https://jobs.ashbyhq.com/connectrn",
+    "sector_tags": [
+      "health_bio",
+      "marketplace"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Industrious",
+    "ats_provider": "ashby",
+    "ats_slug": "industrious",
+    "careers_url": "https://jobs.ashbyhq.com/industrious",
+    "sector_tags": [
+      "proptech"
+    ],
+    "size_band": "201-500"
+  },
+  {
+    "name": "Jellyfish",
+    "ats_provider": "ashby",
+    "ats_slug": "jellyfish",
+    "careers_url": "https://jobs.ashbyhq.com/jellyfish",
+    "sector_tags": [
+      "developer_platform",
+      "saas"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Catena Labs",
+    "ats_provider": "ashby",
+    "ats_slug": "catena-labs",
+    "careers_url": "https://jobs.ashbyhq.com/catena-labs",
+    "sector_tags": [
+      "ai_agentic",
+      "fintech"
+    ],
+    "size_band": "1-50"
+  },
+  {
+    "name": "Keragon",
+    "ats_provider": "ashby",
+    "ats_slug": "keragon",
+    "careers_url": "https://jobs.ashbyhq.com/keragon",
+    "sector_tags": [
+      "health_bio",
+      "saas"
+    ],
+    "size_band": "1-50"
+  },
+  {
+    "name": "Clarion",
+    "ats_provider": "ashby",
+    "ats_slug": "clarion",
+    "careers_url": "https://jobs.ashbyhq.com/clarion",
+    "sector_tags": [
+      "ai_agentic",
+      "construction_tech"
+    ],
+    "size_band": "1-50"
+  },
+  {
+    "name": "Clasp",
+    "ats_provider": "ashby",
+    "ats_slug": "clasp",
+    "careers_url": "https://jobs.ashbyhq.com/clasp",
+    "sector_tags": [
+      "fintech",
+      "edtech"
+    ],
+    "size_band": "1-50"
+  },
+  {
+    "name": "CloudZero",
+    "ats_provider": "ashby",
+    "ats_slug": "cloudzero",
+    "careers_url": "https://jobs.ashbyhq.com/cloudzero",
+    "sector_tags": [
+      "developer_platform",
+      "saas"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Compa",
+    "ats_provider": "ashby",
+    "ats_slug": "compa",
+    "careers_url": "https://jobs.ashbyhq.com/compa",
+    "sector_tags": [
+      "hr_saas",
+      "saas"
+    ],
+    "size_band": "1-50"
+  },
+  {
+    "name": "Armanino",
+    "ats_provider": "ashby",
+    "ats_slug": "companyname",
+    "careers_url": "https://jobs.ashbyhq.com/companyname",
+    "sector_tags": [
+      "consulting"
+    ],
+    "size_band": "500+"
+  },
+  {
+    "name": "Semgrep",
+    "ats_provider": "ashby",
+    "ats_slug": "semgrep",
+    "careers_url": "https://jobs.ashbyhq.com/semgrep",
+    "sector_tags": [
+      "developer_platform",
+      "security"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "M Squared",
+    "ats_provider": "ashby",
+    "ats_slug": "msquared",
+    "careers_url": "https://jobs.ashbyhq.com/msquared",
+    "sector_tags": [
+      "consulting"
+    ],
+    "size_band": "1-50"
+  },
+  {
+    "name": "Mainstay",
+    "ats_provider": "ashby",
+    "ats_slug": "mainstay",
+    "careers_url": "https://jobs.ashbyhq.com/mainstay",
+    "sector_tags": [
+      "ai_agentic",
+      "edtech"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Cyvl",
+    "ats_provider": "ashby",
+    "ats_slug": "cyvl",
+    "careers_url": "https://jobs.ashbyhq.com/cyvl",
+    "sector_tags": [
+      "ai_agentic",
+      "construction_tech"
+    ],
+    "size_band": "1-50"
+  },
+  {
+    "name": "Snowflake",
+    "ats_provider": "ashby",
+    "ats_slug": "snowflake",
+    "careers_url": "https://jobs.ashbyhq.com/snowflake",
+    "sector_tags": [
+      "developer_platform",
+      "saas"
+    ],
+    "size_band": "500+"
+  },
+  {
+    "name": "Smartleaf",
+    "ats_provider": "ashby",
+    "ats_slug": "smartleaf",
+    "careers_url": "https://jobs.ashbyhq.com/smartleaf",
+    "sector_tags": [
+      "fintech"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Snyk",
+    "ats_provider": "ashby",
+    "ats_slug": "snyk",
+    "careers_url": "https://jobs.ashbyhq.com/snyk",
+    "sector_tags": [
+      "developer_platform",
+      "security"
+    ],
+    "size_band": "500+"
+  },
+  {
+    "name": "Maven AGI",
+    "ats_provider": "ashby",
+    "ats_slug": "maven-agi",
+    "careers_url": "https://jobs.ashbyhq.com/maven-agi",
+    "sector_tags": [
+      "ai_agentic",
+      "saas"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Maxima Consulting",
+    "ats_provider": "ashby",
+    "ats_slug": "maxima-consulting",
+    "careers_url": "https://jobs.ashbyhq.com/maxima-consulting",
+    "sector_tags": [
+      "consulting"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Metalenz",
+    "ats_provider": "ashby",
+    "ats_slug": "metalenz",
+    "careers_url": "https://jobs.ashbyhq.com/metalenz",
+    "sector_tags": [
+      "silicon",
+      "iot_edge"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Bynder",
+    "ats_provider": "ashby",
+    "ats_slug": "bynder",
+    "careers_url": "https://jobs.ashbyhq.com/bynder",
+    "sector_tags": [
+      "saas",
+      "martech"
+    ],
+    "size_band": "201-500"
+  },
+  {
+    "name": "Eight Sleep",
+    "ats_provider": "ashby",
+    "ats_slug": "eightsleep",
+    "careers_url": "https://jobs.ashbyhq.com/eightsleep",
+    "sector_tags": [
+      "consumer_at_scale",
+      "iot_edge"
+    ],
+    "size_band": "201-500"
+  },
+  {
+    "name": "CATALOG",
+    "ats_provider": "ashby",
+    "ats_slug": "catalog",
+    "careers_url": "https://jobs.ashbyhq.com/catalog",
+    "sector_tags": [
+      "biotech",
+      "silicon"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Newfront",
+    "ats_provider": "ashby",
+    "ats_slug": "newfront",
+    "careers_url": "https://jobs.ashbyhq.com/newfront",
+    "sector_tags": [
+      "fintech",
+      "insurtech"
+    ],
+    "size_band": "201-500"
+  },
+  {
+    "name": "Nexxen",
+    "ats_provider": "ashby",
+    "ats_slug": "nexxen",
+    "careers_url": "https://jobs.ashbyhq.com/nexxen",
+    "sector_tags": [
+      "adtech"
+    ],
+    "size_band": "500+"
+  },
+  {
+    "name": "Topologic",
+    "ats_provider": "ashby",
+    "ats_slug": "topologic",
+    "careers_url": "https://jobs.ashbyhq.com/topologic",
+    "sector_tags": [
+      "saas"
+    ],
+    "size_band": "1-50"
   }
 ]
