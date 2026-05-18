@@ -2,25 +2,33 @@
 
 ## Current state (2026-05-17)
 
-Pilot is live on cron. Repo: https://github.com/jsimo20/boston-pm-tracker (private). 36 tests green. Plan at `~/.claude/plans/let-s-start-a-new-moonlit-hamster.md`.
+Pilot is live on cron. Repo: https://github.com/jsimo20/boston-pm-tracker (private). 36 tests green.
 
 - Python 3.12. Deps: httpx, anthropic, jinja2, beautifulsoup4, python-dotenv.
 - Pipeline: `collect` → Stage 1 filter → `extract` (Claude Haiku, cached system prompt) → Stage 3 filter → `score` → `digest`.
 - GitHub Action `pm-digest` (file: `.github/workflows/daily.yml`) runs every 3rd day of the month at 13:00 UTC (`0 13 */3 * *`). Writes `data/jobs.db` + `digests/YYYY-MM-DD.md` back to main with `[skip ci]`. `ANTHROPIC_API_KEY` set as repo secret.
-- 14-company seed (Greenhouse + Lever). Recent live run: 788 postings → 19 kept Stage 1 → 14 main + 5 stretch. Daily output around 0–10 actionable roles after stale filter.
+- **307-company seed** (expanded from 14). 237 Greenhouse, 65 Lever, 5 existing pre-discovery. Recent collect run: 10,822 postings → 124 kept Stage 1 across 38 companies. `size_band` is metadata only — not used as a filter anywhere.
 - Application tracking: digest carries forward unapplied roles (top 20 by score per queue). `cli review` interactive picker with `a/d/s/o/b/q`. `mark-applied`, `dismiss`, `unmark` non-interactive forms also exist.
+- BIB full universe: 2,252 companies scraped from builtinboston.com (all sizes, Hybrid/OnSite/Fully-Remote). Raw data at `data/builtinboston_companies_with_slugs.json`. Diff at `data/builtinboston_universe_diff.json`.
 
 ## Open threads
 
-- **Coverage today: ~1–3% of in-scope PM market.** Biggest lever: expand seed to 50–80 Greenhouse + Lever companies + add Ashby adapter. Would lift to ~25–35%. Workday (the next tier — Wayfair, Akamai, etc.) is multi-day work with no clean public API; intentionally deferred.
-- **6 companies dropped** from initial 20-company seed during slug verification: Wayfair, DraftKings, Akamai (Workday), QuEra (no public ATS), Snyk (Ashby — 0 jobs at probe), DataRobot (own ATS). Worth revisiting when Ashby/Workday adapters land.
-- **Workable / Ashby adapters** scaffolded only in plan, not yet implemented — defer until seed expands.
+- **Next immediate win: fold in ~34 more Greenhouse + ~5 Lever companies** found via better slug guessing in `data/ats_gap_analysis.json`. Script `scripts/probe_ats_gap.py` identifies them.
+- **Ashby adapter** is the highest-ROI next build: ~16/300 sampled not-found companies are on Ashby (~100+ extrapolated across full 1,950 gap). API: `https://jobs.ashbyhq.com/{slug}` — public, no auth. Snyk is already a known Ashby company.
+- **~82% of the 1,950 gap companies are on Workday/ICIMS/Taleo/custom pages** — confirmed via gap analysis. These are mostly large enterprises (Fidelity, Biogen, Moderna, BlackRock, Mastercard). Workday has no public API; would require per-tenant scraping. Deferred.
+- **SmartRecruiters probe is a false positive** — their careers endpoint returns 200 for any slug. Do not use it as a detection signal without a more specific check.
 - **GH Action deprecation warning**: `actions/checkout@v4` and `actions/setup-python@v5` move to Node 24 in June 2026. Bump versions before then.
 - **Workflow file is still named `daily.yml`** despite the 3-day cadence and `pm-digest` display name. Rename later if it bothers future-us; not breaking anything.
+- **Top companies with current Stage 1 PM roles**: Veeva (30), Toast (11), Klaviyo (9), Datadog (7), The Engine (7), AlphaSense (4), Constant Contact (4), SimpliSafe (3), Sophos (3), Starburst (3), VEIR (3), WHOOP (3), ZoomInfo (3). `extract` + `score` + `digest` not yet run on the expanded set.
 
 ## Recent sessions
 
-### 2026-05-17 — go-live + application tracking + manage-seeds skill
+### 2026-05-17 (session 2) — BIB universe expansion + ATS gap analysis
+Used Playwright MCP to scrape all 113 pages of builtinboston.com (Hybrid/OnSite/Fully-Remote, all sizes) via JSON-LD structured data (note: script tag uses `application/ld&#x2B;json` encoding). Captured 2,252 companies with name + BIB slug. Ran concurrent async prober (`scripts/probe_ats.py`) against Greenhouse and Lever APIs for all companies — found 302 with valid endpoints (237 GH, 65 Lever). Merged with existing 14 seeds (9 overlapped) → 307-company `seeds/companies.json`. Ran collect: 10,822 postings fetched, 124 kept Stage 1, 38 companies with qualifying PM roles, 0 errors.
+
+Gap analysis (`scripts/probe_ats_gap.py`) on 300-company sample of not-found: 34 more on GH (slug mismatch), 5 more on Lever, 16 on Ashby, 245 on other/unknown. SmartRecruiters endpoint confirmed false-positive (returns 200 for any slug). Workday confirmed as dominant platform for large enterprises in the gap — no public API.
+
+### 2026-05-17 (session 1) — go-live + application tracking + manage-seeds skill
 Steps 3–4 of the execution plan: `git init`, created private repo `jsimo20/boston-pm-tracker`, set `ANTHROPIC_API_KEY` secret, ran `gh workflow run pm-digest` (17s, committed cleanly). Cron then changed from daily to every 3 days (`0 13 */3 * *`); closed-section entries now link the title to the original URL (archived ATS pages often resolve).
 
 Two more QA-driven fixes before go-live:
