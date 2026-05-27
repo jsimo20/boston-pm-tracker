@@ -68,7 +68,7 @@ def _jd_text(posting: dict[str, Any]) -> str | None:
         parts.append(content)
     if extra := posting.get("additionalPlain"):
         parts.append(extra)
-    txt = "\n".join(p for p in parts if p).strip().replace(_BOM, "")
+    txt = "\n".join(p for p in parts if p).replace(_BOM, "").strip()
     return txt or None
 
 
