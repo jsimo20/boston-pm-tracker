@@ -77,6 +77,8 @@ g. **On final approval, call render()** by running this in the repo's venv. **Pa
    "
    ```
 
+   `posting_row` must contain at minimum: `external_id`, `title`, `url`, `company_name`. Optional but used in `apply.md`: `total_score`, `queue`, `location`. If you're hand-constructing because the DB is empty (CI doesn't preserve `data/jobs.db` across runs), include all of these so the rendered `apply.md` is complete.
+
    Use the `Bash` tool. For large JSON payloads, write them to the scratchpad directory and load via `json.load(open(path))` to avoid awkward command-line escaping.
 
 h. **Dispatch the `application-autofiller` subagent** (Sonnet) with `application_url` (the posting URL) and `folder_path` (the per-job folder returned by render()) inline in the prompt. If you drafted any short-answer text in step d that should be typed verbatim (cover-letter paste boxes, "Why this company" essay), include it as `short_answer_drafts` in the prompt.
