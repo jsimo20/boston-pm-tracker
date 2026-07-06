@@ -25,6 +25,13 @@ Your tool list includes `mcp__playwright__*`. If those tools aren't available at
 
 ## Procedure
 
+### 0. Read the ATS recipe (before navigating)
+
+Read `.claude/context/ats-recipes.md`. Identify which ATS the form uses from the URL, then keep its field list and snapshot strategy in memory. This lets you batch-fill after one snapshot instead of rediscovering the layout interactively.
+
+**Direct Greenhouse URL rule:** if the URL contains `gh_jid=<id>` or `gh_src=`, derive the direct URL:
+`https://job-boards.greenhouse.io/<company_slug>/jobs/<gh_jid>` and navigate to that instead. Never navigate via a company careers portal — the portal click-through costs extra snapshots for no gain. The company slug is usually the lowercase company name (e.g., `starburst`, `datadoghq`).
+
 ### 1. Load the inputs
 
 Read once and keep in memory:
@@ -55,12 +62,16 @@ Step by step:
 
 ### 3. Navigate and snapshot
 
-- `browser_navigate` to `application_url`.
-- `browser_snapshot` once for the full page so you can map every form field.
+- `browser_navigate` to `application_url` (using the direct URL from step 0 if applicable).
+- `browser_snapshot` once for the full page. Use `depth: 8` to cap the tree depth and keep the payload small. Keep this snapshot in memory — map every visible field from it before making any more tool calls.
+
+**Snapshot budget:** follow the ATS recipe's target count. Default caps: Greenhouse ≤ 7 total, Ashby ≤ 4 total. Every snapshot beyond the recipe target is a sign you're rediscovering something the recipe already tells you — stop and use the recipe instead.
+
+**Screenshots banned in normal flow.** `browser_take_screenshot` returns an image (expensive tokens) while the a11y tree already contains everything needed for form-filling. Only use it as a last resort when you are genuinely stuck and cannot determine page state from snapshots.
 
 ### 4. Fill text inputs
 
-Batch via `browser_fill_form` when several fields are visible. Use `browser_type` for single fields. Pull values from `standard_answers.md`:
+From your single full-page snapshot, plan the entire fill sequence before acting. Then batch via `browser_fill_form` when several fields are visible. Use `browser_type` for single fields. Pull values from `standard_answers.md`:
 
 - Identity / contact: full name, preferred name, email, phone, LinkedIn, GitHub (use the GitHub URL for fields labeled "Website" if there's no dedicated GitHub field).
 - Location: current city/state (Boston, MA); willing to relocate (Yes); remote / hybrid / on-site (Yes to all).
@@ -70,10 +81,10 @@ Batch via `browser_fill_form` when several fields are visible. Use `browser_type
 
 Greenhouse-themed forms use react-select comboboxes with a "Toggle flyout" button. Pattern:
 1. Click the combobox.
-2. `browser_snapshot` targeted at the combobox container to reveal the listbox options.
+2. `browser_snapshot` targeted at the combobox container (using `target:` param with the combobox ref) to reveal listbox options — this scoped snapshot is much cheaper than a full-page one.
 3. Click the desired option by ref.
 
-For autocomplete-style comboboxes (long lists like Country), type to filter first, then click the matching option.
+For autocomplete-style comboboxes (long lists like Country or City), type to filter first, then take one targeted snapshot to pick the matching option.
 
 ### 6. Work authorization
 
