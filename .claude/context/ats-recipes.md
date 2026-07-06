@@ -39,16 +39,19 @@ Always use the direct Greenhouse URL. Never navigate via a company careers porta
 
 **Snapshot strategy:**
 1. One full-page snapshot after navigate — map all visible fields.
-2. One targeted snapshot per react-select before clicking option (to get option refs).
+2. One targeted snapshot per react-select before clicking option (to get option refs). With ~10 dropdowns on a full form this alone accounts for 10-15 snapshots — it's unavoidable with react-select; don't add extra ones.
 3. One targeted snapshot of EEO section after Hispanic/Latino answer (Race conditional).
 4. One final targeted snapshot on any section that showed an error or unexpected state.
-Total target: 4–7 snapshots for a standard Greenhouse form.
+Total realistic range: 15–25 snapshots for a full Greenhouse form (many react-select dropdowns). The ≤7 budget in old versions of this file was wrong — do not aim for it.
 
 **Known variations:**
 - Some Greenhouse forms omit the Cover Letter upload (Maven AGI, Datadog portal forms).
 - "In what cities are you available to work?" is a multi-select; type the city name, wait for autocomplete, click the match.
 - The phone field is two parts: a country-code react-select + a separate text input. Fill in order.
 - "I certify that all information provided is true" checkbox — required; check it.
+
+**Portal exceptions (direct URL rule does NOT apply):**
+- **Datadog** (`careers.datadoghq.com`): `job-boards.greenhouse.io/datadoghq/jobs/<id>` returns 404. Use the careers portal URL directly — the Greenhouse iframe loads inside the portal page with no extra click needed after navigating to the portal URL.
 
 ---
 
