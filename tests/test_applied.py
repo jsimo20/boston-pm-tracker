@@ -67,6 +67,18 @@ def test_missing_required_fields(tmp_path):
             pass
 
 
+def test_remove_applied(tmp_path):
+    p = tmp_path / "applied.jsonl"
+    applied.record_applied("a", company="C1", title="T1", path=p)
+    applied.record_applied("b", company="C2", title="T2", path=p)
+    removed = applied.remove_applied("a", path=p)
+    assert removed is not None and removed["external_id"] == "a"
+    assert applied.applied_external_ids(path=p) == {"b"}
+    assert applied.remove_applied("nope", path=p) is None  # no match
+    assert applied.remove_applied("b", path=p) is not None
+    assert applied.list_applied(path=p) == []  # file emptied
+
+
 def test_empty_log(tmp_path):
     p = tmp_path / "applied.jsonl"
     assert applied.list_applied(path=p) == []
