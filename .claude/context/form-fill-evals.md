@@ -114,11 +114,23 @@ feedback on what each form got wrong. That feedback defines the expected-value r
 per field type. Capture each form's inventory during the fill so the manifests are
 available even if a posting closes before implementation starts.
 
+## Storage and PII
+
+Captured inventories live at `data/fill_audits/<date>_<company>-<role-slug>.{pre,post}.json`,
+**gitignored**. The `value` column carries James's name, email, phone, and every answer
+he gave, so these never enter git history.
+
+Promoting a manifest into `tests/fixtures/` for CI requires **redacting `value` first**.
+The distinction that makes this safe: Layer 1's assertions read the *structure* — `label`,
+`type`, `required`, `options`, and whether a value is present — not the contents of the
+value. A fixture that keeps the manifest and tokenizes `value` down to a presence flag
+(or a type marker like `<email>`) satisfies both constraints. So Layer 1 can gate CI, and
+should; a deterministic layer that can't run in CI is worth much less than one that can.
+
 ## Open questions
 
-- Where do captured inventories live? Proposal: `data/fill_audits/<date>_<slug>.json`,
-  gitignored (they contain James's contact details).
-- Should Layer 1 gate CI? It can only run against captured fixtures, not live forms,
-  so this depends on whether we promote captured manifests into `tests/fixtures/`.
 - The deterministic `fill_greenhouse.py` path was deferred from eval scope. Once the
   shared inventory exists, grading it is nearly free; revisit then.
+- **Layer 2 is local-only as designed.** Its voice rubric is `~/.claude/rules/writing-style.md`,
+  a user-global path that does not exist on a CI runner. Either keep Layer 2 off CI, or
+  vendor the rubric into `.claude/context/` before wiring it up.
