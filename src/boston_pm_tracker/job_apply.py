@@ -295,8 +295,11 @@ DEFAULT_QA_CHECKLIST = """- [ ] Single page?
 
 
 def _qa_checklist(config: Config) -> str:
-    if config.qa_checklist_md.exists():
-        return config.qa_checklist_md.read_text(encoding="utf-8").strip()
+    # profile/ first, then inputs_dir — they're the same directory unless the
+    # user pointed [paths].inputs_dir somewhere else.
+    for candidate in (settings.profile_dir() / "qa_checklist.md", config.qa_checklist_md):
+        if candidate.exists():
+            return candidate.read_text(encoding="utf-8").strip()
     return DEFAULT_QA_CHECKLIST
 
 
