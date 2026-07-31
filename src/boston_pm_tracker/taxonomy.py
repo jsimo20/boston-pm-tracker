@@ -47,3 +47,5 @@ YOE_MAIN_QUEUE_MAX = 7
 # Roles open longer than this are excluded from the digest as likely
 # resume-fishing posts (always-on reqs, evergreen JDs).
 STALE_DAYS = 30
+
+# repro: touch a .py path so the reviewer path filter fires (see PR #18)
