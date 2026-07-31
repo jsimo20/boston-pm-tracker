@@ -3403,5 +3403,67 @@
       "saas"
     ],
     "size_band": "1-50"
+  },
+  {
+    "name": "Tomo",
+    "ats_provider": "ashby",
+    "ats_slug": "tomo",
+    "careers_url": "https://jobs.ashbyhq.com/tomo",
+    "sector_tags": [
+      "fintech"
+    ],
+    "size_band": "51-200"
+  },
+  {
+    "name": "Arvinas",
+    "ats_provider": "greenhouse",
+    "ats_slug": "arvinas",
+    "careers_url": "https://www.arvinas.com/careers",
+    "sector_tags": [
+      "health_bio"
+    ],
+    "size_band": "201-500"
+  },
+  {
+    "name": "Butterfly Network",
+    "ats_provider": "greenhouse",
+    "ats_slug": "butterflynetwork",
+    "careers_url": "https://www.butterflynetwork.com/careers",
+    "sector_tags": [
+      "health_bio",
+      "iot_edge"
+    ],
+    "size_band": "201-500"
+  },
+  {
+    "name": "GeneDx",
+    "ats_provider": "greenhouse",
+    "ats_slug": "genedx",
+    "careers_url": "https://www.genedx.com/careers",
+    "sector_tags": [
+      "health_bio"
+    ],
+    "size_band": "500+"
+  },
+  {
+    "name": "Talkspace",
+    "ats_provider": "greenhouse",
+    "ats_slug": "talkspace",
+    "careers_url": "https://www.talkspace.com/careers",
+    "sector_tags": [
+      "health_bio",
+      "consumer_at_scale"
+    ],
+    "size_band": "201-500"
+  },
+  {
+    "name": "Hasbro",
+    "ats_provider": "greenhouse",
+    "ats_slug": "hasbro",
+    "careers_url": "https://careers.hasbro.com",
+    "sector_tags": [
+      "consumer_at_scale"
+    ],
+    "size_band": "500+"
   }
 ]
