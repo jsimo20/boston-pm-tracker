@@ -3465,5 +3465,25 @@
       "consumer_at_scale"
     ],
     "size_band": "500+"
+  },
+  {
+    "name": "Budderfly",
+    "ats_provider": "greenhouse",
+    "ats_slug": "budderfly",
+    "careers_url": "https://www.budderfly.com/careers",
+    "sector_tags": [
+      "iot_edge"
+    ],
+    "size_band": "201-500"
+  },
+  {
+    "name": "Kaseya",
+    "ats_provider": "greenhouse",
+    "ats_slug": "kaseya",
+    "careers_url": "https://www.kaseya.com/careers/",
+    "sector_tags": [
+      "developer_platform"
+    ],
+    "size_band": "500+"
   }
 ]
